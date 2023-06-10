@@ -72,8 +72,8 @@ def get_tasks():
 @app.route('/complete/<id>')
 def complete(id):
 
-    todo = Todo.query.filter_by(id=int(id)).first()
-    todo.complete = True
+    task = ums.query.filter_by(id=int(id)).first()
+    task.complete = True
     db.session.commit()
 
     return redirect(url_for('index'))
